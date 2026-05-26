@@ -5151,6 +5151,96 @@
       ]
     },
     {
+      "description": "Apptivate (Cmd+number app launchers)",
+      "manipulators": [
+        {
+          "description": "cmd + 1 = Google Chrome",
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Google Chrome'"
+            }
+          ]
+        },
+        {
+          "description": "cmd + 2 = Things3",
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Things3'"
+            }
+          ]
+        },
+        {
+          "description": "cmd + 3 = Google Calendar (Chrome PWA)",
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a '/Users/mkronberg/Applications/Chrome Apps.localized/Google Calendar.app'"
+            }
+          ]
+        },
+        {
+          "description": "cmd + 4 = Obsidian",
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'Obsidian'"
+            }
+          ]
+        },
+        {
+          "description": "cmd + 5 = iTerm",
+          "type": "basic",
+          "from": {
+            "key_code": "5",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'iTerm'"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Hyper Terminal",
       "manipulators": [
         {
@@ -6925,6 +7015,45 @@
                 "left_shift",
                 "left_option"
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Mouse Thumb Buttons to Middle Click",
+      "manipulators": [
+        {
+          "description": "mouse button4 (back) = mouse button3 (middle click)",
+          "type": "basic",
+          "from": {
+            "pointing_button": "button4",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button3"
+            }
+          ]
+        },
+        {
+          "description": "mouse button5 (forward) = mouse button3 (middle click)",
+          "type": "basic",
+          "from": {
+            "pointing_button": "button5",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button3"
             }
           ]
         }
