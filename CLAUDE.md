@@ -16,11 +16,8 @@ cd mac_v3 && make install
 ```
 This compiles YAML → JSON and copies to `~/.config/karabiner/assets/complex_modifications/`.
 
-### When `yq` is missing
-This machine has no `yq`, `brew`, or `pip`. Workaround: hand-edit **both** `capslock.yml` and `capslock.json` to keep them in sync, then copy the JSON manually:
-```sh
-cp mac_v3/capslock.json ~/.config/karabiner/assets/complex_modifications/
-```
+Use `make compile` to only regenerate `capslock.json` without touching the live
+Karabiner config. Never hand-edit `capslock.json` — it is generated output.
 
 ### Critical gotcha: assets ≠ active rules
 The file at `~/.config/karabiner/assets/complex_modifications/capslock.json` only lists *available* rules for the Karabiner UI to import. Karabiner does **not** read it live. Active rules live in `~/.config/karabiner/karabiner.json` under `profiles[0].complex_modifications.rules`.
@@ -42,7 +39,7 @@ python3 -c "import json; json.load(open('PATH')); print('valid')"
 ## Custom sections
 
 ### Apptivate (Cmd+number app launchers)
-Cmd+1..5 → Chrome / Things3 / Google Calendar (Chrome PWA) / Obsidian / iTerm via `shell_command: open -a`. `open -a` natively launches if closed or focuses if open — same behavior as Apptivate.
+Cmd+1..5 → Chrome / Things3 / Claude / Obsidian / iTerm via `shell_command: open -a`. `open -a` natively launches if closed or focuses if open — same behavior as Apptivate.
 
 **Trade-off:** hijacks plain Cmd+1..5 globally, so browser tab switching and Slack workspace switching stop working. To exclude an app, add `conditions` with `frontmost_application_unless` on its bundle ID.
 
@@ -53,15 +50,11 @@ button4/button5 → button3, with `optional: [any]` so it fires regardless of mo
 
 ## Git remotes
 
-- `origin` → `Vonng/Capslock` (upstream, read-only; do not push)
-- `mine` → `m-kronberg/Capslock` (personal fork; push target)
-- Remote default branch on `mine` is `master` (legacy); local works on `main`. Push with `git push mine main:master`.
-
-## Network constraints (this machine)
-
-- Both SSH port 22 and SSH-over-HTTPS port 443 to GitHub are blocked
-- Must use HTTPS + Personal Access Token (stored in osxkeychain after first prompt)
-- `gh` CLI and `brew` are not installed
+- `origin` → `m-kronberg/Capslock` (personal fork; push target) over SSH
+- `upstream` → `Vonng/Capslock` (read-only; do not push)
+- Work happens on `master`, which tracks `origin/master`. Plain `git push` is correct.
+- Upstream's default branch is `main`; pull upstream changes with
+  `git fetch upstream && git merge upstream/main`.
 
 ## Updating from Apptivate
 
