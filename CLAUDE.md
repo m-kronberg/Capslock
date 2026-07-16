@@ -2,6 +2,23 @@
 
 Personal fork of [Vonng/Capslock](https://github.com/Vonng/Capslock) — a Karabiner-Elements complex modification that turns CapsLock into a Hyper key (`right_cmd + right_ctrl + right_shift + right_option`).
 
+## Changes vs upstream
+
+Everything else is unmodified upstream. This fork adds exactly two rules
+(appended to `mac_v3/capslock.yml`, compiled into `capslock.json`), plus this
+`CLAUDE.md`:
+
+1. **Apptivate (Cmd+number app launchers)** — plain `Cmd+1..5` launch/focus
+   Chrome / Things3 / Claude / Obsidian / iTerm via `open -a`. See
+   [Apptivate](#apptivate-cmdnumber-app-launchers) below. Note this deliberately
+   hijacks the OS-wide `Cmd+N` (browser tabs, Slack workspaces).
+2. **Mouse Thumb Buttons → Middle Click** — mouse button4/button5 → button3.
+   See [Mouse Thumb Buttons](#mouse-thumb-buttons-to-middle-click) below.
+
+Also: `cmd+3` maps to Claude (a fork-only choice), and `.gitignore` drops one
+upstream entry. No upstream Hyper-layer behavior is altered. Detailed rationale
+and gotchas for each addition live in the [Custom sections](#custom-sections).
+
 ## Source of truth
 
 - `mac_v3/capslock.yml` — authoritative; edit here

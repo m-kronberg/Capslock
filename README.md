@@ -13,6 +13,22 @@
 
 ------------------------
 
+## 🍴 This is a personal fork
+
+This is a personal fork of [**Vonng/Capslock**](https://github.com/Vonng/Capslock).
+The entire Hyper-key system below is unchanged from upstream. This fork only
+**adds** two rules to `mac_v3/capslock.yml`:
+
+| Change | What it does |
+| --- | --- |
+| **Apptivate (Cmd+number launchers)** | Plain <kbd>⌘</kbd>+<kbd>1</kbd>..<kbd>5</kbd> launch/focus Chrome · Things3 · Claude · Obsidian · iTerm via `open -a`. ⚠️ Deliberately overrides OS-wide <kbd>⌘</kbd>+number (browser tabs, Slack workspaces). |
+| **Mouse Thumb → Middle Click** | Mouse `button4`/`button5` (thumb back/forward) emit `button3` (middle click). |
+
+See [`CLAUDE.md`](CLAUDE.md) for build/deploy notes, rationale, and gotchas.
+Everything below this section is the original upstream README.
+
+------------------------
+
 ## CapsLock Enhancement Mac v3
 
 *Transform <kbd>⇪</kbd>CapsLock into a powerful **modifier** **<kbd>✱</kbd> Hyper** that miraculously increases your work productivity!*
